@@ -20,15 +20,14 @@ class MonthlyGrossControllerServiceTest {
     private MonthlyGrossService salaryCalculatorService;
 
 
-
     @Test
     void getDescription() {
-        assertThat(salaryCalculatorService.getDescription()).isEqualTo(ANNUAL_MONTHLY_DESCRIPTION);
+        assertThat(this.salaryCalculatorService.getDescription()).isEqualTo(ANNUAL_MONTHLY_DESCRIPTION);
     }
 
     @ParameterizedTest
     @CsvSource({"6000, 6000.00", "7000, 7000.00", "15143.99,15143.99"})
-    public void getDisabilityZus(BigDecimal input, BigDecimal expected) {
-        assertThat(salaryCalculatorService.apply(input)).isEqualTo(expected);
+    public void getMonthlyGross(BigDecimal input, BigDecimal expected) {
+        assertThat(this.salaryCalculatorService.apply(input)).isEqualTo(expected);
     }
 }

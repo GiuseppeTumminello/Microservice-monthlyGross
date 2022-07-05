@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -22,14 +21,17 @@ import java.util.Map;
 @Validated
 public class MonthlyGrossController {
 
+    public static final String DESCRIPTION = "description";
+    public static final String VALUE = "value";
+
     private final MonthlyGrossRepository monthlyGrossRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
     @PostMapping("/getMonthlyGross/{grossMonthlySalary}")
-    public Map<String, BigDecimal> calculateTotalZus(@PathVariable @Min(2000)BigDecimal grossMonthlySalary){
-        var monthlyNet = salaryCalculatorService.apply(grossMonthlySalary);
-        this.monthlyGrossRepository.save(com.acoustic.entity.MonthlyGrossController.builder().monthlyNetAmount(monthlyNet).build());
-        return new LinkedHashMap<>(Map.of(salaryCalculatorService.getDescription(), monthlyNet));
+    public Map<String, String> calculateMonthlyGross(@PathVariable @Min(2000)BigDecimal grossMonthlySalary){
+        var monthlyGross = this.salaryCalculatorService.apply(grossMonthlySalary);
+        this.monthlyGrossRepository.save(com.acoustic.entity.MonthlyGrossController.builder().monthlyGrossAmount(monthlyGross).build());
+        return Map.of(DESCRIPTION,this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(monthlyGross));
     }
 }
