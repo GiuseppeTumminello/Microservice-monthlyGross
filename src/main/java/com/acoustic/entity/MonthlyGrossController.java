@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 @Builder
 public class MonthlyGrossController {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private BigDecimal monthlyGrossAmount;
