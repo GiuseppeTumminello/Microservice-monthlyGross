@@ -15,14 +15,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @ExtendWith(MockitoExtension.class)
 class MonthlyGrossControllerServiceTest {
 
-    public static final String ANNUAL_MONTHLY_DESCRIPTION = "Monthly gross";
+    public static final String MONTHLY_GROSS_DESCRIPTION = "Monthly gross";
     @InjectMocks
     private MonthlyGrossService salaryCalculatorService;
 
 
     @Test
     void getDescription() {
-        assertThat(this.salaryCalculatorService.getDescription()).isEqualTo(ANNUAL_MONTHLY_DESCRIPTION);
+        assertThat(this.salaryCalculatorService.getDescription()).isEqualTo(MONTHLY_GROSS_DESCRIPTION);
     }
 
     @ParameterizedTest

@@ -1,16 +1,12 @@
 package com.acoustic.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-@Component
-@RequiredArgsConstructor
+@Service
 public class MonthlyGrossService implements SalaryCalculatorService{
-
-
 
     @Override
     public String getDescription() {

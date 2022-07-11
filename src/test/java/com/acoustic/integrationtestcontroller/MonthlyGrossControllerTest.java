@@ -27,7 +27,7 @@ class MonthlyGrossControllerTest {
     public static final String MONTHLY_GROSS_DESCRIPTION = "Monthly gross";
     public static final String DESCRIPTION = "description";
     public static final String VALUE = "value";
-    private final String MONTHLY_GROSS_ENDPOINT = "/monthlyGross/getMonthlyGross/";
+    private final String MONTHLY_GROSS_ENDPOINT = "/monthly-gross/calculation/";
     @Autowired
     private MockMvc mockMvc;
     @Autowired
